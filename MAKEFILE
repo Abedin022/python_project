@@ -1,0 +1,36 @@
+PYTHON = python3
+VENV = venv
+ACTIVATE = . $(VENV)/bin/activate
+MODE ?= NORMAL
+APP_FILE = app.py
+UTILLS_FILE = utils.py
+LOG_MSG ?= "App started in $(MODE) mode"
+
+ifeq ($(MODE), dev)
+	PORT = 5000
+	DEBUG = True
+else ifeq ($(MODE), prod)
+	PORT = 8000
+	DEBUG = False
+else
+	PORT = 8080
+	DEBUG = False
+endif
+
+.PHONY: all setup run clean
+
+setup:
+	@echo "Checking virtual environment..."
+	if [ ! -d "$(VENV)" ]; then \
+		$(PYTHON) -m venv $(VENV); \
+		echo "Virtual environment created."; \
+	else \
+		echo "Virtual environment already exists."; \
+	fi
+	@echo "Installing dependencies..."
+	$(ACTIVATE) && pip install --upgrade pip && pip install -r requirements.txt
+	echo "Setup complete."
+
+run: 
+	@echo "🚀 Running Flask app in $(MODE) mode (port: $(PORT))..."
+	@$(ACTIVATE) && export FLASK_APP=$(APP_FILE) && flask run --port=$(PORT)
