@@ -17,7 +17,7 @@ else
 	DEBUG = False
 endif
 
-.PHONY: all setup run clean
+.PHONY: setup run log clean deps status
 
 setup:
 	@echo "Checking virtual environment..."
@@ -34,3 +34,29 @@ setup:
 run: 
 	@echo "🚀 Running Flask app in $(MODE) mode (port: $(PORT))..."
 	@$(ACTIVATE) && export FLASK_APP=$(APP_FILE) && flask run --port=$(PORT)
+
+log:
+	@echo "📝 Writing log entry..."
+	@$(ACTIVATE) && $(PYTHON) $(UTILS_FILE) $(LOG_MSG)
+
+# clean logs
+clean:
+	@echo "🧹 Cleaning up log files..."
+	rm -f logs/app.log
+	@echo "Logs cleaned ✅"
+
+# 5️⃣ Reinstall dependencies; dependencies were already installed during
+# the virtual environment setup, but this target allows for reinstallation if
+# dependencies change and the requirements.txt file is updated.
+deps:
+	@echo "📦 Reinstalling dependencies..."
+	@$(ACTIVATE) && pip install -r requirements.txt
+
+# 6️⃣ Check environment status
+status:
+	@if [ -d "$(VENV_DIR)" ]; then \
+		echo "✅ Virtual environment exists."; \
+	else \
+		echo "❌ Virtual environment not found."; \
+	fi
+	@$(ACTIVATE) && pip show flask > /dev/null 2>&1 && echo "✅ Flask installed." || echo "❌ Flask not installed."
