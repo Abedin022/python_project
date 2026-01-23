@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Platform - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .courses-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-thumbnail {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .course-thumbnail:nth-child(1) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .course-info {
+            padding: 20px;
+        }
+
+        .course-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .course-instructor {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .course-rating {
+            color: #ffa500;
+            font-weight: bold;
+        }
+
+        .course-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .course-price.free {
+            color: #28a745;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .badge.popular {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .badge.new {
+            background: #51cf66;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">📚 E-Learn</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="hero">
+            <h1>Welcome to E-Learning Platform</h1>
+            <p>Discover thousands of courses and expand your knowledge</p>
+        </div>
+
+        <div class="courses-section">
+            <h2 class="section-title">Featured Courses</h2>
+            <div class="courses-grid">
+                <!-- Course Card 1 -->
+                <div class="course-card">
+                    <div class="course-thumbnail">💻</div>
+                    <div class="course-info">
+                        <div class="course-title">Python Programming</div>
+                        <div class="course-instructor">By John Smith</div>
+                        <div class="badge popular">Popular</div>
+                        <div class="course-meta">
+                            <div class="course-rating">⭐ 4.8</div>
+                            <div class="course-price">$49.99</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card">
+                    <div class="course-thumbnail">🎨</div>
+                    <div class="course-info">
+                        <div class="course-title">Web Design Fundamentals</div>
+                        <div class="course-instructor">By Sarah Johnson</div>
+                        <div class="badge new">New</div>
+                        <div class="course-meta">
+                            <div class="course-rating">⭐ 4.6</div>
+                            <div class="course-price">$39.99</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card">
+                    <div class="course-thumbnail">📱</div>
+                    <div class="course-info">
+                        <div class="course-title">Mobile App Development</div>
+                        <div class="course-instructor">By Mike Davis</div>
+                        <div class="course-meta">
+                            <div class="course-rating">⭐ 4.7</div>
+                            <div class="course-price">$59.99</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 4 -->
+                <div class="course-card">
+                    <div class="course-thumbnail">📊</div>
+                    <div class="course-info">
+                        <div class="course-title">Data Science & Analytics</div>
+                        <div class="course-instructor">By Emily Chen</div>
+                        <div class="badge popular">Popular</div>
+                        <div class="course-meta">
+                            <div class="course-rating">⭐ 4.9</div>
+                            <div class="course-price">$69.99</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 5 -->
+                <div class="course-card">
+                    <div class="course-thumbnail">🔒</div>
+                    <div class="course-info">
+                        <div class="course-title">Cybersecurity Basics</div>
+                        <div class="course-instructor">By Alex Brown</div>
+                        <div class="course-meta">
+                            <div class="course-rating">⭐ 4.5</div>
+                            <div class="course-price free">Free</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 6 -->
+                <div class="course-card">
+                    <div class="course-thumbnail">🤖</div>
+                    <div class="course-info">
+                        <div class="course-title">Machine Learning</div>
+                        <div class="course-instructor">By David Wilson</div>
+                        <div class="badge new">New</div>
+                        <div class="course-meta">
+                            <div class="course-rating">⭐ 4.8</div>
+                            <div class="course-price">$79.99</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

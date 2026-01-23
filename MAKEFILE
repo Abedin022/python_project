@@ -60,3 +60,7 @@ status:
 		echo "❌ Virtual environment not found."; \
 	fi
 	@$(ACTIVATE) && pip show flask > /dev/null 2>&1 && echo "✅ Flask installed." || echo "❌ Flask not installed."
+
+
+say_hello:
+    @echo "Hello World"
