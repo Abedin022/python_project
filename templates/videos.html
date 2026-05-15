@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+    setTimeout(() => {
+        location.reload();
+    }, 5000);
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Analysis Dashboard</title>
+
+    <style>
+
+        body {
+            background-color: #07111f;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #4da6ff;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            background-color: #0d1b2a;
+            border: 1px solid #1b263b;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #66b3ff;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #132238;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 5px solid #3399ff;
+        }
+
+        .status-processing {
+            color: #ffcc00;
+        }
+
+        .status-processed {
+            color: #33cc66;
+        }
+
+        .url {
+            word-break: break-all;
+            margin-top: 8px;
+            color: #d6e4f0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Traffic Video Dashboard</h1>
+
+    <div class="section">
+
+        <h2>Processing Videos</h2>
+
+        {% for video in processing %}
+
+            <div class="card">
+
+                <p class="status-processing">
+                    Added at : {{video.timestamp}}
+                </p>
+
+                <p class="url">
+                    {{ video.process_video_url }}
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <div class="section">
+
+        <h2>Processed Videos</h2>
+
+        {% for video in processed %}
+
+            <div class="card">
+
+                <p class="status-processed">
+                    Added at : {{video.timestamp}}
+                </p>
+
+                <p class="url">
+                    {{ video.process_video_url }}
+                </p>
+
+                <a href="/video/{{ video._id }}">
+                    <button>View Details</button>
+                </a>
+
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

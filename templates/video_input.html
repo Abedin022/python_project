@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Analyzer</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #07111f;
+            font-family: Arial, sans-serif;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 100vh;
+        }
+
+        .container {
+            width: 500px;
+            background-color: #0d1b2a;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #1b263b;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4da6ff;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        input[type="url"] {
+
+            width: 100%;
+            padding: 15px;
+
+            border: none;
+            border-radius: 8px;
+
+            background-color: #132238;
+            color: white;
+
+            font-size: 15px;
+            box-sizing: border-box;
+
+            margin-bottom: 20px;
+        }
+
+        input[type="url"]:focus {
+            outline: 2px solid #3399ff;
+        }
+
+        button {
+
+            width: 100%;
+            padding: 15px;
+
+            border: none;
+            border-radius: 8px;
+
+            background-color: #1d4ed8;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Traffic Video Analyzer</h1>
+
+        <p>
+            Paste a YouTube video or Shorts URL for traffic analysis.
+        </p>
+
+        <form action="/analyze" method="POST">
+
+            <input
+                type="url"
+                name="youtube_url"
+                placeholder="https://www.youtube.com/watch?v=..."
+                required
+            >
+
+            <button type="submit">
+                Analyze Video
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
